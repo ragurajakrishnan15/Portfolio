@@ -1,0 +1,1303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raguraja Krishnan — Engineering AI That Matters</title>
+  <meta name="description"
+    content="Raguraja Krishnan — ML Engineer & Data Science Professional specializing in deep learning, agentic AI, RAG pipelines, and cloud infrastructure.">
+  <meta property="og:title" content="Raguraja Krishnan — Engineering AI That Matters">
+  <meta property="og:description"
+    content="ML Engineer & Data Science Professional — deep learning, agentic AI, RAG pipelines, and cloud infrastructure.">
+  <meta property="og:type" content="website">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --white: #ffffff;
+      --snow: #fafafa;
+      --pearl: #f5f5f7;
+      --silk: #efefef;
+      --silver: #e0e0e0;
+      --ash: #d2d2d7;
+      --stone: #86868b;
+      --graphite: #6e6e73;
+      --charcoal: #424245;
+      --ink: #1d1d1f;
+      --black: #000000;
+      --accent: #0071e3;
+      --accent-hover: #0058c7;
+      --accent-light: rgba(0, 113, 227, 0.08);
+      --glow: 0 8px 32px rgba(0, 113, 227, 0.18);
+      --sans: 'Plus Jakarta Sans', 'DM Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --display: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    /* ─── SCROLLBAR ─── */
+    ::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--ash);
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--stone);
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: var(--sans);
+      background: var(--white);
+      color: var(--ink);
+      font-size: 17px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+    }
+
+    .nav-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 52px;
+      padding: 0 2rem;
+    }
+
+    .nav-name {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: -0.3px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      color: var(--graphite);
+      text-decoration: none;
+      transition: color 0.2s;
+      font-weight: 400;
+    }
+
+    .nav-links a:hover {
+      color: var(--ink);
+    }
+
+    .nav-cta {
+      font-size: 13px;
+      padding: 6px 18px;
+      background: var(--ink);
+      color: var(--white) !important;
+      border-radius: 980px;
+      transition: all 0.2s;
+    }
+
+    .nav-cta:hover {
+      background: var(--charcoal) !important;
+    }
+
+    .mobile-menu {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 20px;
+      color: var(--ink);
+      cursor: pointer;
+    }
+
+    /* ─── HERO ─── */
+    @keyframes heroGradient {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    @keyframes dotPulse {
+
+      0%,
+      100% {
+        box-shadow: 0 0 0 0 rgba(0, 113, 227, 0.4);
+      }
+
+      50% {
+        box-shadow: 0 0 0 6px rgba(0, 113, 227, 0);
+      }
+    }
+
+    .hero {
+      padding: 10rem 2rem 8rem;
+      text-align: center;
+      background: linear-gradient(135deg, #ffffff 0%, #f0f6ff 35%, #faf5ff 65%, #f5f5f7 100%);
+      background-size: 300% 300%;
+      animation: heroGradient 12s ease infinite;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0, 113, 227, 0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: inline-block;
+      animation: dotPulse 2s ease-in-out infinite;
+    }
+
+    .hero h1 {
+      font-family: var(--display);
+      font-size: clamp(44px, 7vw, 80px);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -3px;
+      color: var(--ink);
+      max-width: 900px;
+      margin: 0 auto 1.5rem;
+    }
+
+    .hero h1 .light {
+      font-weight: 300;
+      color: var(--stone);
+    }
+
+    .hero-sub {
+      font-size: 19px;
+      font-weight: 300;
+      color: var(--graphite);
+      max-width: 520px;
+      margin: 0 auto 3rem;
+      line-height: 1.5;
+    }
+
+    .hero-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .btn {
+      font-family: var(--sans);
+      font-size: 15px;
+      font-weight: 500;
+      padding: 12px 28px;
+      border-radius: 980px;
+      text-decoration: none;
+      transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+      border: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-fill {
+      background: var(--accent);
+      color: var(--white);
+      box-shadow: 0 4px 18px rgba(0, 113, 227, 0.32);
+    }
+
+    .btn-fill:hover {
+      background: var(--accent-hover);
+      box-shadow: var(--glow);
+      transform: translateY(-2px) scale(1.02);
+    }
+
+    .btn-ghost {
+      background: rgba(255, 255, 255, 0.85);
+      color: var(--accent);
+      border: 1px solid rgba(0, 113, 227, 0.25);
+      backdrop-filter: blur(8px);
+    }
+
+    .btn-ghost:hover {
+      background: var(--accent-light);
+      transform: translateY(-2px);
+    }
+
+    .btn-resume {
+      background: var(--ink);
+      color: var(--white);
+    }
+
+    .btn-resume:hover {
+      background: var(--charcoal);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    /* ─── SECTION COMMON ─── */
+    .section-white {
+      background: var(--white);
+    }
+
+    .section-pearl {
+      background: var(--pearl);
+    }
+
+    .section-padding {
+      padding: 7rem 2rem;
+    }
+
+    .section-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    .section-eyebrow {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-family: var(--display);
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 700;
+      letter-spacing: -1.5px;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+      color: var(--ink);
+    }
+
+    .section-subtitle {
+      font-size: 18px;
+      font-weight: 300;
+      color: var(--graphite);
+      max-width: 480px;
+      line-height: 1.5;
+      margin-bottom: 4rem;
+    }
+
+    /* ─── STAT RIBBON ─── */
+    .stat-ribbon {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border-top: 1px solid var(--silk);
+      border-bottom: 1px solid var(--silk);
+      background: var(--white);
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 3.5rem 1.5rem;
+      border-right: 1px solid var(--silk);
+    }
+
+    .stat-item:last-child {
+      border-right: none;
+    }
+
+    .stat-value {
+      font-family: var(--display);
+      font-size: 42px;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: -2px;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 13px;
+      color: var(--stone);
+      font-weight: 400;
+    }
+
+    /* ─── CAPABILITIES / STACK ─── */
+    .cap-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--silk);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .cap-card {
+      background: var(--white);
+      padding: 3rem;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+    }
+
+    .cap-card:hover {
+      background: var(--snow);
+      transform: translateY(-4px);
+      z-index: 1;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+    }
+
+    .cap-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: var(--pearl);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      margin-bottom: 1.5rem;
+    }
+
+    .cap-card h3 {
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      margin-bottom: 0.6rem;
+      color: var(--ink);
+    }
+
+    .cap-card p {
+      font-size: 15px;
+      color: var(--graphite);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .cap-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .cap-tag {
+      font-size: 12px;
+      font-weight: 500;
+      padding: 4px 12px;
+      background: var(--pearl);
+      color: var(--charcoal);
+      border-radius: 980px;
+    }
+
+    /* ─── PROJECTS ─── */
+    .project-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      background: var(--silk);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .project-item {
+      background: var(--white);
+      padding: 3rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: start;
+      gap: 3rem;
+      transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      border-left: 3px solid transparent;
+    }
+
+    .project-item:hover {
+      background: #f8fbff;
+      border-left-color: var(--accent);
+      padding-left: calc(3rem + 4px);
+    }
+
+    .project-item h3 {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 0.4rem;
+      color: var(--ink);
+      transition: color 0.2s;
+    }
+
+    .project-item:hover h3 {
+      color: var(--accent);
+    }
+
+    .project-type {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+    }
+
+    .project-desc {
+      font-size: 15px;
+      color: var(--graphite);
+      line-height: 1.65;
+      max-width: 560px;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 1rem;
+    }
+
+    .project-arrow {
+      font-size: 22px;
+      color: var(--ash);
+      transition: all 0.3s;
+      align-self: center;
+      width: 38px;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      border: 1.5px solid var(--silk);
+    }
+
+    .project-item:hover .project-arrow {
+      color: var(--white);
+      background: var(--accent);
+      border-color: var(--accent);
+      transform: translateX(4px);
+    }
+
+    /* ─── EXPERIENCE ─── */
+    .exp-list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .exp-item {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 3rem;
+      padding: 3rem 0;
+      border-bottom: 1px solid var(--silk);
+    }
+
+    .exp-item:first-child {
+      padding-top: 0;
+    }
+
+    .exp-item:last-child {
+      border-bottom: none;
+    }
+
+    .exp-company {
+      font-size: 13px;
+      color: var(--stone);
+      font-weight: 500;
+    }
+
+    .exp-content h3 {
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      margin-bottom: 0.3rem;
+      color: var(--ink);
+    }
+
+    .exp-focus {
+      font-size: 14px;
+      color: var(--graphite);
+      margin-bottom: 0.75rem;
+    }
+
+    .exp-impact {
+      font-size: 15px;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .exp-impact-label {
+      font-size: 12px;
+      color: var(--stone);
+      margin-top: 2px;
+    }
+
+    /* ─── EDUCATION ─── */
+    .edu-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--silk);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .edu-card {
+      background: var(--white);
+      padding: 3rem;
+    }
+
+    .edu-card h3 {
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      margin-bottom: 0.3rem;
+      color: var(--ink);
+    }
+
+    .edu-school {
+      font-size: 15px;
+      color: var(--accent);
+      margin-bottom: 0.25rem;
+    }
+
+    .edu-detail {
+      font-size: 14px;
+      color: var(--stone);
+    }
+
+    .edu-cert-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--stone);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.75rem;
+    }
+
+    .edu-cert-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.2px;
+    }
+
+    .edu-cert-desc {
+      font-size: 14px;
+      color: var(--graphite);
+      line-height: 1.6;
+    }
+
+    /* ─── PUBLICATION BANNER ─── */
+    .pub-banner {
+      background: var(--ink);
+      color: var(--white);
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+
+    .pub-banner .pub-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--stone);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 1.5rem;
+    }
+
+    .pub-banner h3 {
+      font-family: var(--display);
+      font-size: clamp(28px, 3.5vw, 40px);
+      font-weight: 700;
+      letter-spacing: -1px;
+      margin-bottom: 0.75rem;
+      color: var(--white);
+    }
+
+    .pub-banner p {
+      font-size: 16px;
+      color: var(--stone);
+      font-weight: 300;
+    }
+
+    /* ─── CTA / CONTACT ─── */
+    .contact-section {
+      padding: 8rem 2rem;
+      text-align: center;
+      background: var(--pearl);
+    }
+
+    .contact-title {
+      font-family: var(--display);
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 700;
+      letter-spacing: -2px;
+      color: var(--ink);
+      margin-bottom: 1rem;
+    }
+
+    .contact-sub {
+      font-size: 18px;
+      font-weight: 300;
+      color: var(--graphite);
+      max-width: 420px;
+      margin: 0 auto 3rem;
+      line-height: 1.5;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .contact-pill {
+      font-family: var(--sans);
+      font-size: 14px;
+      font-weight: 500;
+      padding: 12px 28px;
+      background: var(--white);
+      color: var(--ink);
+      border: 1px solid var(--silver);
+      border-radius: 980px;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    .contact-pill:hover {
+      background: var(--ink);
+      color: var(--white);
+      border-color: var(--ink);
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      padding: 2rem;
+      text-align: center;
+      border-top: 1px solid var(--silk);
+      background: var(--white);
+    }
+
+    footer p {
+      font-size: 12px;
+      color: var(--stone);
+    }
+
+    /* ─── SCROLL ANIMATIONS ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ─── MOBILE ─── */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .mobile-menu {
+        display: block;
+      }
+
+      .hero {
+        padding: 8rem 1.5rem 5rem;
+      }
+
+      .hero h1 {
+        letter-spacing: -1.5px;
+      }
+
+      .stat-ribbon {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .stat-item:nth-child(2) {
+        border-right: none;
+      }
+
+      .cap-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-item {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .project-arrow {
+        display: none;
+      }
+
+      .exp-item {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+      }
+
+      .edu-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-padding {
+        padding: 4rem 1.5rem;
+      }
+
+      .hero-links {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="nav-name">Ragu</a>
+      <ul class="nav-links">
+        <li><a href="#capabilities">Capabilities</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="Raguraja_Resume_RA (1).pdf" download class="nav-cta" style="background:var(--accent);">↓ Résumé</a>
+        </li>
+        <li><a href="#contact" class="nav-cta">Contact</a></li>
+      </ul>
+      <button class="mobile-menu" aria-label="Menu">☰</button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-eyebrow">ML Engineer · Data Science Professional · AI Researcher</div>
+    <h1>Engineering AI<br><span class="light">That Matters.</span></h1>
+    <p class="hero-sub">I design and deploy ML pipelines, agentic AI, and data infrastructure — from research to
+      production.</p>
+    <div class="hero-links">
+      <a href="#work" class="btn btn-fill">View my work</a>
+      <a href="Raguraja_Resume_RA (1).pdf" download class="btn btn-resume">↓ Download Résumé</a>
+      <a href="#contact" class="btn btn-ghost">Get in touch ›</a>
+    </div>
+  </section>
+
+  <!-- STAT RIBBON -->
+  <div class="stat-ribbon">
+    <div class="stat-item reveal">
+      <div class="stat-value">IEEE</div>
+      <div class="stat-label">Published researcher</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-value">94%</div>
+      <div class="stat-label">Deploy time reduction</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-value">140K+</div>
+      <div class="stat-label">Records processed</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-value">2-day</div>
+      <div class="stat-label">Full RAG system build</div>
+    </div>
+  </div>
+
+  <!-- CAPABILITIES -->
+  <section id="capabilities" class="section-pearl section-padding">
+    <div class="section-inner">
+      <div class="section-eyebrow reveal">Capabilities</div>
+      <h2 class="section-title reveal">What I bring to the table.</h2>
+      <p class="section-subtitle reveal">Full-stack ML and data expertise — from model development to cloud deployment.
+      </p>
+
+      <div class="cap-grid reveal">
+        <div class="cap-card">
+          <div class="cap-icon">🧠</div>
+          <h3>Machine Learning & AI</h3>
+          <p>End-to-end model development, RAG pipelines, agentic systems, and multi-agent orchestration for production
+            use cases.</p>
+          <div class="cap-tags">
+            <span class="cap-tag">PyTorch</span>
+            <span class="cap-tag">scikit-learn</span>
+            <span class="cap-tag">LangChain</span>
+            <span class="cap-tag">CrewAI</span>
+            <span class="cap-tag">ChromaDB</span>
+            <span class="cap-tag">Hugging Face</span>
+          </div>
+        </div>
+        <div class="cap-card">
+          <div class="cap-icon">⚙️</div>
+          <h3>Data Engineering</h3>
+          <p>ETL pipelines, data modeling, and infrastructure designed for reliability and scale.</p>
+          <div class="cap-tags">
+            <span class="cap-tag">Python</span>
+            <span class="cap-tag">SQL</span>
+            <span class="cap-tag">PostgreSQL</span>
+            <span class="cap-tag">Pandas</span>
+            <span class="cap-tag">Apache Spark</span>
+          </div>
+        </div>
+        <div class="cap-card">
+          <div class="cap-icon">☁️</div>
+          <h3>Cloud & DevOps</h3>
+          <p>Production deployments across major cloud platforms with CI/CD automation and containerization.</p>
+          <div class="cap-tags">
+            <span class="cap-tag">AWS</span>
+            <span class="cap-tag">Azure</span>
+            <span class="cap-tag">Bedrock</span>
+            <span class="cap-tag">Docker</span>
+            <span class="cap-tag">CI/CD</span>
+          </div>
+        </div>
+        <div class="cap-card">
+          <div class="cap-icon">📊</div>
+          <h3>Visualization & Automation</h3>
+          <p>Interactive dashboards and workflow automation that put data in people's hands.</p>
+          <div class="cap-tags">
+            <span class="cap-tag">Streamlit</span>
+            <span class="cap-tag">Plotly</span>
+            <span class="cap-tag">Power BI</span>
+            <span class="cap-tag">Tableau</span>
+            <span class="cap-tag">n8n</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="work" class="section-white section-padding">
+    <div class="section-inner">
+      <div class="section-eyebrow reveal">Selected work</div>
+      <h2 class="section-title reveal">Projects that prove<br>the point.</h2>
+      <p class="section-subtitle reveal">Real systems I designed, built, and deployed — not tutorial clones.</p>
+
+      <div class="project-list reveal">
+
+        <a href="https://github.com/ragurajakrishnan15/agentic-rag-assistant" target="_blank" rel="noopener"
+          class="project-item">
+          <div>
+            <div class="project-type">Agentic AI · RAG · LLM</div>
+            <h3>Agentic RAG Assistant</h3>
+            <p class="project-desc">End-to-end RAG system answering questions over private PDFs using agentic routing
+              between local knowledge, web search, and hybrid retrieval. Grounded responses with citations and modular
+              LLM orchestration.</p>
+            <div class="project-tags">
+              <span class="cap-tag">LangChain</span>
+              <span class="cap-tag">ChromaDB</span>
+              <span class="cap-tag">RAG</span>
+              <span class="cap-tag">Streamlit</span>
+            </div>
+          </div>
+          <span class="project-arrow">→</span>
+        </a>
+
+        <a href="https://github.com/ragurajakrishnan15/LLM-Training-Data-Pipeline" target="_blank" rel="noopener"
+          class="project-item">
+          <div>
+            <div class="project-type">NLP · Data Engineering · LLM</div>
+            <h3>LLM Training Data Pipeline</h3>
+            <p class="project-desc">Scalable pipeline for preparing large-scale text corpora for LLM training —
+              ingestion, cleaning, deduplication, quality filtering, tokenization, and reproducible preprocessing
+              workflows.</p>
+            <div class="project-tags">
+              <span class="cap-tag">Python</span>
+              <span class="cap-tag">NLP</span>
+              <span class="cap-tag">Tokenization</span>
+              <span class="cap-tag">Data Pipeline</span>
+            </div>
+          </div>
+          <span class="project-arrow">→</span>
+        </a>
+
+        <a href="https://github.com/ragurajakrishnan15/Snort-ML-Analyzer---Real-Time-Network-Anomaly-Detection-System-"
+          target="_blank" rel="noopener" class="project-item">
+          <div>
+            <div class="project-type">Cybersecurity · Unsupervised ML · Real-Time</div>
+            <h3>Snort ML Analyzer – Network Anomaly Detection</h3>
+            <p class="project-desc">AI-powered cybersecurity dashboard combining Snort IDS logs with six unsupervised ML
+              algorithms to detect anomalies and suspicious network behavior in real time through interactive
+              visualizations.</p>
+            <div class="project-tags">
+              <span class="cap-tag">Snort IDS</span>
+              <span class="cap-tag">Scikit-learn</span>
+              <span class="cap-tag">Streamlit</span>
+              <span class="cap-tag">Anomaly Detection</span>
+            </div>
+          </div>
+          <span class="project-arrow">→</span>
+        </a>
+
+        <a href="https://github.com/ragurajakrishnan15/FitBuddy" target="_blank" rel="noopener" class="project-item">
+          <div>
+            <div class="project-type">Predictive ML · Health Tech · Analytics</div>
+            <h3>FitBuddy</h3>
+            <p class="project-desc">AI-powered fitness companion delivering personalized workout tracking, injury-risk
+              prediction, recovery scoring, and nutrition recommendations using predictive analytics and intelligent
+              health monitoring.</p>
+            <div class="project-tags">
+              <span class="cap-tag">Python</span>
+              <span class="cap-tag">Predictive ML</span>
+              <span class="cap-tag">Health Analytics</span>
+            </div>
+          </div>
+          <span class="project-arrow">→</span>
+        </a>
+
+        <a href="https://github.com/ragurajakrishnan15/Blood-Group-Detection-From-FIngerprints-Quantum-Deep-Learning-"
+          target="_blank" rel="noopener" class="project-item">
+          <div>
+            <div class="project-type">Computer Vision · Quantum ML · Research</div>
+            <h3>Blood Group Detection from Fingerprints (Quantum Deep Learning)</h3>
+            <p class="project-desc">Hybrid quantum-classical deep learning system predicting blood groups from
+              fingerprint images using CNNs integrated with PennyLane quantum circuits for enhanced feature learning.
+            </p>
+            <div class="project-tags">
+              <span class="cap-tag">TensorFlow</span>
+              <span class="cap-tag">PennyLane</span>
+              <span class="cap-tag">CNN</span>
+              <span class="cap-tag">Qiskit</span>
+            </div>
+          </div>
+          <span class="project-arrow">→</span>
+        </a>
+
+        <a href="https://github.com/ragurajakrishnan15/Side-Channel-Attack-Demos" target="_blank" rel="noopener"
+          class="project-item">
+          <div>
+            <div class="project-type">Cybersecurity · Cryptography · Education</div>
+            <h3>Side-Channel Attack Demos</h3>
+            <p class="project-desc">Educational platform demonstrating DPA, SPA, kleptographic RSA attacks, and Shor's
+              algorithm through interactive Streamlit visualizations.</p>
+            <div class="project-tags">
+              <span class="cap-tag">Streamlit</span>
+              <span class="cap-tag">Cryptography</span>
+              <span class="cap-tag">DPA / SPA</span>
+              <span class="cap-tag">Qiskit</span>
+            </div>
+          </div>
+          <span class="project-arrow">→</span>
+        </a>
+
+        <a href="https://github.com/ragurajakrishnan15/Tableau-Airline-Satisfaction-Analysis" target="_blank"
+          rel="noopener" class="project-item">
+          <div>
+            <div class="project-type">Data Analysis · Visualization · BI</div>
+            <h3>Tableau Airline Satisfaction Analysis</h3>
+            <p class="project-desc">Interactive Tableau dashboards analyzing airline passenger satisfaction across
+              demographics, travel classes, delays, and service quality to uncover actionable business insights.</p>
+            <div class="project-tags">
+              <span class="cap-tag">Tableau</span>
+              <span class="cap-tag">K-Means</span>
+              <span class="cap-tag">Pandas</span>
+              <span class="cap-tag">Scikit-learn</span>
+            </div>
+          </div>
+          <span class="project-arrow">→</span>
+        </a>
+
+        <a href="https://github.com/ragurajakrishnan15/Loan-Eligibility-Prediction-Model" target="_blank" rel="noopener"
+          class="project-item">
+          <div>
+            <div class="project-type">ML · Web App · Classification</div>
+            <h3>Loan Eligibility Prediction Model</h3>
+            <p class="project-desc">ML web app built with Flask that predicts loan approval outcomes based on applicant
+              information using a trained classification model and an interactive prediction interface.</p>
+            <div class="project-tags">
+              <span class="cap-tag">Flask</span>
+              <span class="cap-tag">Scikit-learn</span>
+              <span class="cap-tag">Python</span>
+              <span class="cap-tag">Classification</span>
+            </div>
+          </div>
+          <span class="project-arrow">→</span>
+        </a>
+
+      </div>
+  </section>
+
+  <!-- PUBLICATION BANNER -->
+  <a href="https://ieeexplore.ieee.org/document/11307602" target="_blank" rel="noopener" class="pub-banner reveal"
+    style="display:block;text-decoration:none;cursor:pointer;">
+    <p class="pub-label">Published Research</p>
+    <h3>Wireless Power Transfer Systems</h3>
+    <p>IEEE · iTech SECOM 2025 &nbsp;→</p>
+  </a>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="section-pearl section-padding">
+    <div class="section-inner">
+      <div class="section-eyebrow reveal">Experience</div>
+      <h2 class="section-title reveal">Where I've delivered.</h2>
+      <p class="section-subtitle reveal">Quantified impact at every stop.</p>
+
+      <div class="exp-list">
+        <div class="exp-item reveal">
+          <div class="exp-company">Indian Orthocare<br>Surgicals</div>
+          <div class="exp-content">
+            <h3>Data Analyst Intern</h3>
+            <p class="exp-focus">ETL Pipelines · 140K+ Records</p>
+            <p class="exp-impact">Report generation: 4 hours → 22 minutes</p>
+            <p class="exp-impact-label">91% faster reporting workflows</p>
+          </div>
+        </div>
+        <div class="exp-item reveal">
+          <div class="exp-company">Nokia Solutions<br>and Networks</div>
+          <div class="exp-content">
+            <h3>Data Science Intern</h3>
+            <p class="exp-focus">CI/CD Pipeline Engineering</p>
+            <p class="exp-impact">Deployment time: 3 days → 4 hours</p>
+            <p class="exp-impact-label">94% reduction in release cycles</p>
+          </div>
+        </div>
+        <div class="exp-item reveal">
+          <div class="exp-company">Rankraze<br>Technologies</div>
+          <div class="exp-content">
+            <h3>Data Analytics Intern</h3>
+            <p class="exp-focus">Dashboard Development</p>
+            <p class="exp-impact">Streamlit · Plotly Dash · Power BI · Tableau</p>
+            <p class="exp-impact-label">Interactive dashboards across 4 platforms</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education" class="section-white section-padding">
+    <div class="section-inner">
+      <div class="section-eyebrow reveal">Education</div>
+      <h2 class="section-title reveal">Academic foundation.</h2>
+      <p class="section-subtitle reveal">Where the thinking started.</p>
+
+      <div class="edu-grid reveal">
+        <div class="edu-card">
+          <h3>MS Information Systems</h3>
+          <p class="edu-school">Binghamton University (SUNY)</p>
+          <p class="edu-detail">Applied Data Science Concentration</p>
+          <p class="edu-detail">Expected December 2026</p>
+        </div>
+        <div class="edu-card">
+          <h3>PG Program in Data Science</h3>
+          <p class="edu-school">Vellore Institute of Technology (VIT)</p>
+          <p class="edu-detail">GPA 3.72/4.00 · June 2024</p>
+        </div>
+        <div class="edu-card">
+          <h3>B.Sc. Data Science</h3>
+          <p class="edu-school">Sri Ramachandra Faculty of Engineering</p>
+          <p class="edu-detail">GPA 3.06/4.00 · July 2023</p>
+        </div>
+      </div>
+
+      <!-- Licenses & Certifications -->
+      <div class="section-eyebrow reveal" style="margin-top:5rem;">Licenses &amp; Certifications</div>
+      <h2 class="section-title reveal" style="font-size:clamp(24px,3vw,36px);margin-bottom:2rem;">Credentials that
+        matter.</h2>
+      <div
+        style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--silk);border-radius:20px;overflow:hidden;"
+        class="reveal">
+        <div style="background:var(--white);padding:1.75rem 2rem;">
+          <div
+            style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--stone);margin-bottom:0.4rem;">
+            Anthropic · Jun 2026</div>
+          <div style="font-size:13px;font-weight:500;color:var(--ink);line-height:1.4;">Certificate of Completion:
+            Claude 101</div>
+          <div style="font-size:11px;color:var(--stone);margin-top:4px;">ID: phtwthe539bu</div>
+        </div>
+        <div style="background:var(--white);padding:1.75rem 2rem;">
+          <div
+            style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--stone);margin-bottom:0.4rem;">
+            Anthropic · Jun 2026</div>
+          <div style="font-size:13px;font-weight:500;color:var(--ink);line-height:1.4;">AI Fluency Framework &amp;
+            Foundations</div>
+          <div style="font-size:11px;color:var(--stone);margin-top:4px;">ID: 87hxpru3ibhu</div>
+        </div>
+        <div style="background:var(--white);padding:1.75rem 2rem;">
+          <div
+            style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--stone);margin-bottom:0.4rem;">
+            IBM · Mar 2026</div>
+          <div style="font-size:13px;font-weight:500;color:var(--ink);line-height:1.4;">IBM RAG and Agentic AI
+            Professional Certificate</div>
+          <div style="font-size:11px;color:var(--stone);margin-top:4px;">ID: CF9J45PXIZVE</div>
+        </div>
+        <div style="background:var(--white);padding:1.75rem 2rem;">
+          <div
+            style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--stone);margin-bottom:0.4rem;">
+            IBM · Mar 2026</div>
+          <div style="font-size:13px;font-weight:500;color:var(--ink);line-height:1.4;">Build AI Agents using MCP</div>
+          <div style="font-size:11px;color:var(--stone);margin-top:4px;">ID: H1WMM1CQD0KF</div>
+        </div>
+        <div style="background:var(--white);padding:1.75rem 2rem;">
+          <div
+            style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--stone);margin-bottom:0.4rem;">
+            Vanderbilt University · Mar 2026</div>
+          <div style="font-size:13px;font-weight:500;color:var(--ink);line-height:1.4;">Agentic AI and AI Agents: A
+            Primer for Leaders</div>
+          <div style="font-size:11px;color:var(--stone);margin-top:4px;">ID: 2QC9OG46J7FP</div>
+        </div>
+        <div style="background:var(--white);padding:1.75rem 2rem;">
+          <div
+            style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--stone);margin-bottom:0.4rem;">
+            Oracle · Oct 2025</div>
+          <div style="font-size:13px;font-weight:500;color:var(--ink);line-height:1.4;">OCI 2025 Generative AI
+            Professional</div>
+          <div style="font-size:11px;color:var(--stone);margin-top:4px;">ID: OC7549659</div>
+        </div>
+        <div style="background:var(--white);padding:1.75rem 2rem;">
+          <div
+            style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--stone);margin-bottom:0.4rem;">
+            Oracle · Oct 2025</div>
+          <div style="font-size:13px;font-weight:500;color:var(--ink);line-height:1.4;">OCI 2025 Data Science
+            Professional</div>
+          <div style="font-size:11px;color:var(--stone);margin-top:4px;">ID: OC7549659</div>
+        </div>
+        <div style="background:var(--white);padding:1.75rem 2rem;">
+          <div
+            style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--stone);margin-bottom:0.4rem;">
+            Google · Mar 2025</div>
+          <div style="font-size:13px;font-weight:500;color:var(--ink);line-height:1.4;">Prompt Design in Vertex AI Skill
+            Badge</div>
+        </div>
+        <div style="background:var(--white);padding:1.75rem 2rem;">
+          <div
+            style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--stone);margin-bottom:0.4rem;">
+            freeCodeCamp · Mar 2025</div>
+          <div style="font-size:13px;font-weight:500;color:var(--ink);line-height:1.4;">Machine Learning with Python
+          </div>
+          <div style="font-size:11px;color:var(--stone);margin-top:4px;">ID: ragurajakrishnan-mlwp</div>
+        </div>
+        <div style="background:var(--white);padding:1.75rem 2rem;">
+          <div
+            style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--stone);margin-bottom:0.4rem;">
+            freeCodeCamp · Mar 2025</div>
+          <div style="font-size:13px;font-weight:500;color:var(--ink);line-height:1.4;">Data Analysis with Python</div>
+          <div style="font-size:11px;color:var(--stone);margin-top:4px;">ID: ragurajakrishnan-dawp</div>
+        </div>
+        <div style="background:var(--white);padding:1.75rem 2rem;">
+          <div
+            style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--stone);margin-bottom:0.4rem;">
+            Coursera · Feb 2025</div>
+          <div style="font-size:13px;font-weight:500;color:var(--ink);line-height:1.4;">Business Analysis &amp; Process
+            Management</div>
+          <div style="font-size:11px;color:var(--stone);margin-top:4px;">ID: WPOAXE1PY9SQ</div>
+        </div>
+        <div style="background:var(--white);padding:1.75rem 2rem;">
+          <div
+            style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--stone);margin-bottom:0.4rem;">
+            AWS · Oct 2022</div>
+          <div style="font-size:13px;font-weight:500;color:var(--ink);line-height:1.4;">AWS Academy Graduate – Cloud
+            Foundations</div>
+        </div>
+        <div style="background:var(--white);padding:1.75rem 2rem;">
+          <div
+            style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--stone);margin-bottom:0.4rem;">
+            AWS · Oct 2022</div>
+          <div style="font-size:13px;font-weight:500;color:var(--ink);line-height:1.4;">AWS Academy Graduate –
+            Introduction to Cloud Semester 1</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact-section">
+    <div class="section-inner">
+      <h2 class="contact-title reveal">Let's build<br>something great.</h2>
+      <p class="contact-sub reveal">Open to ML engineering, data science, and data engineering roles — open anywhere in
+        the US.</p>
+      <div class="contact-links reveal">
+        <a href="mailto:rnatarajanma@binghamton.edu" class="contact-pill">Email</a>
+        <a href="https://www.linkedin.com/in/ragurajakrishnan/" class="contact-pill" target="_blank"
+          rel="noopener">LinkedIn</a>
+        <a href="https://github.com/ragurajakrishnan15" class="contact-pill" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://leetcode.com/u/VbHS9JwJHH/" class="contact-pill" target="_blank" rel="noopener">LeetCode</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Ragu</p>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+
+</html>
