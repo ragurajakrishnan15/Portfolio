@@ -811,6 +811,10 @@
             grid-column: span 3;
         }
 
+        .cap.full {
+            grid-column: span 6;
+        }
+
         .cap-icon {
             width: 44px;
             height: 44px;
@@ -1219,6 +1223,10 @@
                 grid-column: span 3;
             }
 
+            .cap:nth-child(5) {
+                grid-column: span 6;
+            }
+
             .project,
             .project.feat {
                 grid-column: span 3;
@@ -1236,6 +1244,8 @@
 
             .cert {
                 grid-template-columns: 88px minmax(0, 1fr);
+                gap: 2px 20px;
+                padding: 14px 24px;
             }
 
             .cert .cert-issuer,
@@ -1336,7 +1346,13 @@
             }
 
             .contact-row {
-                grid-template-columns: 72px minmax(0, 1fr) auto;
+                grid-template-columns: 64px minmax(0, 1fr);
+                gap: 12px;
+                font-size: 14.5px;
+            }
+
+            .contact-row .ic {
+                display: none;
             }
         }
 
@@ -1796,8 +1812,6 @@
             }
         ];
         // layout: row1 wide+wide, row2 three, row3 wide... normalise spans
-        skills.forEach((s, i) => { s.span = i < 2 ? 3 : (i === 5 ? 6 : 2); });
-        skills[5].span = 6;
 
         const projects = [
             {
@@ -1886,7 +1900,7 @@
 
         // ─── RENDER ───
         document.getElementById('skillsGrid').innerHTML = skills.map((s, i) => `
-            <div class="card cap reveal" style="grid-column:span ${s.span};--d:${(i % 3) * 70}ms">
+            <div class="card cap ${i < 2 ? 'wide' : (i === 5 ? 'full' : '')} reveal" style="--d:${(i % 3) * 70}ms">
                 <div class="cap-icon"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true">${s.icon}</svg></div>
                 <h3>${esc(s.title)}</h3>
                 <p>${esc(s.text)}</p>
