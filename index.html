@@ -885,6 +885,16 @@
             grid-column: span 6;
         }
 
+        .project[hidden] {
+            display: none;
+        }
+
+        .proj-more {
+            display: flex;
+            justify-content: center;
+            margin-top: 32px;
+        }
+
         /* whole-card link (title link stretched) + separate live-demo link */
         .project h3 {
             position: static;
@@ -1617,6 +1627,9 @@
                     <p>Each one links to its repository.</p>
                 </div>
                 <div class="proj-grid" id="projGrid"></div>
+                <div class="proj-more">
+                    <button type="button" class="btn btn-ghost" id="projMore" aria-controls="projGrid">Show all projects</button>
+                </div>
             </div>
         </section>
 
@@ -1896,6 +1909,7 @@
             {
                 kind: 'Cybersecurity · Unsupervised ML · Real-time', name: 'Snort ML Analyzer: real-time network anomaly detection',
                 url: 'https://github.com/ragurajakrishnan15/Snort-ML-Analyzer---Real-Time-Network-Anomaly-Detection-System-',
+                top: true,
                 text: 'AI-powered cybersecurity dashboard that combines Snort IDS logs with six unsupervised machine learning algorithms to detect anomalies and suspicious network behavior in real time through interactive visualizations.',
                 tags: ['Snort IDS', 'Scikit-learn', 'Streamlit', 'Anomaly Detection']
             },
@@ -1932,6 +1946,7 @@
             {
                 kind: 'Data platform · Analytics engineering', name: 'GoPulse',
                 url: 'https://github.com/ragurajakrishnan15/GoPulse',
+                top: true,
                 live: 'https://gopulse-web-nu.vercel.app',
                 text: 'End-to-end data platform for an AI product on synthetic data: Bronze/Silver/Gold lakehouse, tested dbt models, PostgreSQL, FastAPI and an accessible Next.js site, with data-quality gates, orchestration and a Spark/Delta implementation.',
                 tags: ['dbt', 'Spark / Delta', 'FastAPI', 'Next.js', 'PostgreSQL']
@@ -1939,12 +1954,14 @@
             {
                 kind: 'Fraud · Graph ML · Explainability', name: 'IdentityGraph AI',
                 url: 'https://github.com/ragurajakrishnan15/identitygraph-ai',
+                top: true,
                 text: 'Identity-graph fraud risk for credit applications: leakage-safe identity, device and velocity features, eight compared models, SHAP explanations, drift monitoring and a Next.js dashboard for investigating rings of linked applications.',
                 tags: ['FastAPI', 'XGBoost', 'SHAP', 'Graph features', 'Next.js']
             },
             {
                 kind: 'Supply chain · Forecasting · RAG', name: 'OpsBrain',
                 url: 'https://github.com/ragurajakrishnan15/Ops-brain',
+                top: true,
                 live: 'https://ragurajakrishnan-ops-brain.share.connect.posit.cloud/',
                 text: 'Supply chain analytics platform combining demand forecasting with honest out-of-sample evaluation, statistical tests, a sandboxed text-to-SQL agent and RAG over operations documents, delivered as a Streamlit data product.',
                 tags: ['XGBoost', 'SHAP', 'Text-to-SQL', 'RAG', 'Streamlit']
@@ -1952,6 +1969,7 @@
             {
                 kind: 'Finance analytics · Snowflake · LLM', name: 'CloudSpend AI',
                 url: 'https://github.com/ragurajakrishnan15/Cloud_Spend',
+                top: true,
                 text: 'Snowflake-backed product finance platform for cloud-spend analysis, budget variance, anomaly detection, forecasting and rule-based recommendations, with an AI analyst that can only quote verified calculations.',
                 tags: ['Snowflake', 'Streamlit', 'Anomaly Detection', 'Forecasting']
             },
@@ -1964,12 +1982,13 @@
             {
                 kind: 'Banking analytics · Forecasting · SQL', name: 'SpendIQ',
                 url: 'https://github.com/ragurajakrishnan15/Spend',
+                top: true,
                 live: 'https://spendiq-rose.vercel.app',
                 text: 'Banking customer intelligence platform covering transaction analytics, spending forecasts, RFM segmentation, campaign-response modelling and read-only SQL analytics, on synthetic data with a FastAPI backend and Next.js frontend.',
                 tags: ['FastAPI', 'Next.js', 'DuckDB', 'Scikit-learn', 'Forecasting']
             },
             {
-                wide: true, kind: 'Data science · Telemetry · ETL', name: 'Audio Telemetry Intelligence',
+                kind: 'Data science · Telemetry · ETL', name: 'Audio Telemetry Intelligence',
                 url: 'https://github.com/ragurajakrishnan15/Audio-Telemetry-Intelligence',
                 text: 'End-to-end data science pipeline for large-scale audio device telemetry: synthetic data generation, PySpark and pandas ETL, SQL analytics, statistical analysis, ML models and an interactive Streamlit dashboard, with CI.',
                 tags: ['PySpark', 'SQL', 'Scikit-learn', 'Streamlit']
@@ -2026,8 +2045,14 @@
                 ${tagsHtml(s.tags)}
             </div>`).join('');
 
-        document.getElementById('projGrid').innerHTML = projects.map((p, i) => `
-            <div class="card project ${p.feat ? 'feat' : ''} ${p.wide ? 'wide' : ''} reveal" style="--d:${(i % 3) * 70}ms">
+        // featured and top projects first; the rest sit behind "Show all"
+        const TOP_COUNT = 8;
+        const ordered = projects.map((p, i) => ({ ...p, c: cases[i] }))
+            .sort((x, y) => (y.feat ? 2 : y.top ? 1 : 0) - (x.feat ? 2 : x.top ? 1 : 0));
+        const regular = ordered.filter(p => !p.feat);
+        if (regular.length % 3 === 1) ordered[ordered.length - 1].wide = true;
+        document.getElementById('projGrid').innerHTML = ordered.map((p, i) => `
+            <div class="card project ${p.feat ? 'feat' : ''} ${p.wide ? 'wide' : ''} reveal" ${i >= TOP_COUNT ? 'data-extra hidden' : ''} style="--d:${(i % 3) * 70}ms">
                 <div class="project-top">
                     <span class="mono">${esc(p.kind)}</span>
                     <span class="go">${ARROW}</span>
@@ -2035,9 +2060,26 @@
                 <h3><a href="${p.url}" target="_blank" rel="noopener">${esc(p.name)}</a></h3>
                 <p>${esc(p.text)}</p>
                 ${p.live ? `<a class="live" href="${p.live}" target="_blank" rel="noopener" aria-label="Live demo of ${esc(p.name)}">Live demo ${ARROW}</a>` : ''}
-                ${caseHtml(cases[i])}
+                ${caseHtml(p.c)}
                 ${tagsHtml(p.tags)}
             </div>`).join('');
+        (() => {
+            const btn = document.getElementById('projMore');
+            const extra = document.querySelectorAll('#projGrid [data-extra]');
+            if (!extra.length) { btn.parentElement.hidden = true; return; }
+            const total = ordered.length;
+            let open = false;
+            const label = () => btn.firstChild.textContent = open ? 'Show fewer projects' : `Show all ${total} projects`;
+            label();
+            btn.setAttribute('aria-expanded', 'false');
+            btn.addEventListener('click', () => {
+                open = !open;
+                extra.forEach(el => { el.hidden = !open; });
+                btn.setAttribute('aria-expanded', String(open));
+                label();
+                if (!open) document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
+            });
+        })();
 
         document.getElementById('certList').innerHTML = certs.map(c => `
             <div class="cert">
