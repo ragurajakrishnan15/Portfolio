@@ -1861,6 +1861,48 @@
                 url: 'https://github.com/ragurajakrishnan15/Loan-Eligibility-Prediction-Model',
                 text: 'Machine learning web application built with Flask that predicts loan approval outcomes based on applicant information using a trained classification model and an interactive prediction interface.',
                 tags: ['Flask', 'Scikit-learn', 'Python', 'Classification']
+            },
+            {
+                kind: 'Data platform · Analytics engineering', name: 'GoPulse',
+                url: 'https://github.com/ragurajakrishnan15/GoPulse',
+                text: 'End-to-end data platform for an AI product on synthetic data: Bronze/Silver/Gold lakehouse, tested dbt models, PostgreSQL, FastAPI and an accessible Next.js site, with data-quality gates, orchestration and a Spark/Delta implementation.',
+                tags: ['dbt', 'Spark / Delta', 'FastAPI', 'Next.js', 'PostgreSQL']
+            },
+            {
+                kind: 'Fraud · Graph ML · Explainability', name: 'IdentityGraph AI',
+                url: 'https://github.com/ragurajakrishnan15/identitygraph-ai',
+                text: 'Identity-graph fraud risk for credit applications: leakage-safe identity, device and velocity features, eight compared models, SHAP explanations, drift monitoring and a Next.js dashboard for investigating rings of linked applications.',
+                tags: ['FastAPI', 'XGBoost', 'SHAP', 'Graph features', 'Next.js']
+            },
+            {
+                kind: 'Supply chain · Forecasting · RAG', name: 'OpsBrain',
+                url: 'https://github.com/ragurajakrishnan15/Ops-brain',
+                text: 'Supply chain analytics platform combining demand forecasting with honest out-of-sample evaluation, statistical tests, a sandboxed text-to-SQL agent and RAG over operations documents, delivered as a Streamlit data product.',
+                tags: ['XGBoost', 'SHAP', 'Text-to-SQL', 'RAG', 'Streamlit']
+            },
+            {
+                kind: 'Finance analytics · Snowflake · LLM', name: 'CloudSpend AI',
+                url: 'https://github.com/ragurajakrishnan15/Cloud_Spend',
+                text: 'Snowflake-backed product finance platform for cloud-spend analysis, budget variance, anomaly detection, forecasting and rule-based recommendations, with an AI analyst that can only quote verified calculations.',
+                tags: ['Snowflake', 'Streamlit', 'Anomaly Detection', 'Forecasting']
+            },
+            {
+                kind: 'Optimization · Experimentation · Web', name: 'Fleet Dispatch Optimizer',
+                url: 'https://github.com/ragurajakrishnan15/Fleet-Dispatch-Optimizer',
+                text: 'Interactive demo of autonomous-vehicle fleet dispatch for a ride-hail marketplace: demand forecasting, exact assignment with the Hungarian algorithm, A/B experiment analysis and fleet KPIs, running client-side on synthetic data.',
+                tags: ['TypeScript', 'Optimization', 'A/B Testing', 'Next.js']
+            },
+            {
+                kind: 'Banking analytics · Forecasting · SQL', name: 'SpendIQ',
+                url: 'https://github.com/ragurajakrishnan15/Spend',
+                text: 'Banking customer intelligence platform covering transaction analytics, spending forecasts, RFM segmentation, campaign-response modelling and read-only SQL analytics, on synthetic data with a FastAPI backend and Next.js frontend.',
+                tags: ['FastAPI', 'Next.js', 'DuckDB', 'Scikit-learn', 'Forecasting']
+            },
+            {
+                kind: 'Data science · Telemetry · ETL', name: 'Audio Telemetry Intelligence',
+                url: 'https://github.com/ragurajakrishnan15/Audio-Telemetry-Intelligence',
+                text: 'End-to-end data science pipeline for large-scale audio device telemetry: synthetic data generation, PySpark and pandas ETL, SQL analytics, statistical analysis, ML models and an interactive Streamlit dashboard, with CI.',
+                tags: ['PySpark', 'SQL', 'Scikit-learn', 'Streamlit']
             }
         ];
 
@@ -1872,7 +1914,14 @@
             ['Blood typing normally needs a lab sample.', 'CNNs combined with PennyLane quantum circuits for feature learning.', 'Blood-group prediction from fingerprint images (research prototype).'],
             ['Side-channel attacks are hard to grasp from theory alone.', "Interactive demos of DPA, SPA, kleptographic RSA and Shor's algorithm.", 'A hands-on, visual way to learn how the attacks work.'],
             ['Satisfaction drivers are buried in survey data.', 'Tableau dashboards plus K-Means across demographics, class, delays and service.', 'Clear visual insight into what drives passenger satisfaction.'],
-            ['Manual loan eligibility checks are slow.', 'A trained classification model served through a Flask app.', 'Instant approval prediction from applicant information.']
+            ['Manual loan eligibility checks are slow.', 'A trained classification model served through a Flask app.', 'Instant approval prediction from applicant information.'],
+            ['Raw product events are duplicated, messy and hard to trust.', 'Validated, deduplicated lakehouse layers, dbt models and quality gates feeding an API and site.', '203 automated tests, and the same 54 browser tests pass against the live site.'],
+            ['Fraud rings hide behind shared devices, phones and addresses.', 'Applications linked into a graph, with leakage-safe features and eight models compared on a chronological hold-out.', 'Graph features lift PR-AUC in all three boosting families, with explained scores and drift monitoring.'],
+            ['Operations teams need forecasts and answers, not just static reports.', 'SQL pipeline, XGBoost against baselines with significance tests, and a router over a SQL agent and RAG.', 'A live dashboard with forecasts, risk, data quality and a chat assistant.'],
+            ['Cloud spend is hard to explain and budget variance is hard to trace.', 'RAW to ANALYTICS to REPORTING layers in Snowflake, two anomaly methods and an ETS forecast with backtest.', 'A dashboard plus a grounded QBR draft that never invents savings.'],
+            ['Sending idle cars to the nearest zone leaves demand unmet.', 'Demand model plus an exact Hungarian-algorithm assignment, compared with a naive policy over a 30-day simulation.', 'Before and after metrics with paired and Welch analysis of the A/B test.'],
+            ['Banks need to understand spending and target campaigns without exposing real data.', '36 months of synthetic transactions, RFM segments, a forecast backtest and a campaign model behind one API.', 'A live website with a model card and a single read-only SQL path.'],
+            ['Device telemetry is huge and raw sessions say little on their own.', 'ETL in PySpark or pandas, SQL analytics, statistical tests and predictive models.', 'A tested pipeline and dashboard, with limitations stated openly.']
         ];
         const caseHtml = c => `<dl class="case">
             <div><dt>Problem</dt><dd>${esc(c[0])}</dd></div>
